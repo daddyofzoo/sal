@@ -2,660 +2,749 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <title>Sal</title>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1817338412287148');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1817338412287148&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1015772997952719');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1015772997952719&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4511824625755146');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4511824625755146&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita do Sal</title>
+    <!-- Font Awesome 6 (gratuita) e Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        /* RESET E BASE - DARK THEME YOUTUBE 2025 */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            padding-top: 60px;
-            line-height: 1.6;
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #f1f1f1;
+            padding-top: 56px;
+            line-height: 1.5;
             min-height: 100vh;
         }
-        
 
-        #black-part {
+        /* HEADER - YouTube Dark */
+        .yt-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 56px;
+            background: #0f0f0f;
+            border-bottom: 1px solid #272727;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+        }
 
-            background-color: rgb(255, 255, 255);
-        }
-        
-        .titulo-principal {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: #222;
-            line-height: 1.3;
-            background: linear-gradient(90deg, #e53935 0%, #ff7043 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subtitulo {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-        
-        .destaque-laranja {
-            color: #ff7043;
+        .yt-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 20px;
             font-weight: 700;
+            color: #ff0000;
+            text-decoration: none;
+            flex-shrink: 0;
         }
-        
-        .destaque-vermelho {
-            color: #e53935;
-            font-weight: 800;
+        .yt-header .logo i {
+            font-size: 28px;
         }
-        
-        .video-container {
-            margin-bottom: 40px;
+        .yt-header .logo span {
+            color: #f1f1f1;
+            font-weight: 400;
+        }
+
+        .yt-header .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #303030;
+            border-radius: 40px;
+            background: #121212;
             overflow: hidden;
-            background: #ffffff;
-            position: relative;
         }
-        
-        .video-container:before {
-            content: "";
+        .yt-header .search-bar input {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: #f1f1f1;
+            outline: none;
+        }
+        .yt-header .search-bar input::placeholder {
+            color: #888;
+        }
+        .yt-header .search-bar button {
+            background: #222;
+            border: none;
+            border-left: 1px solid #303030;
+            padding: 8px 18px;
+            cursor: pointer;
+            color: #f1f1f1;
+            font-size: 16px;
+        }
+        .yt-header .search-bar button:hover {
+            background: #2a2a2a;
+        }
+
+        .yt-header .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 20px;
+            color: #f1f1f1;
+        }
+        .yt-header .header-icons i {
+            cursor: pointer;
+        }
+        .yt-header .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #555;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        /* MAIN LAYOUT */
+        .yt-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PLAYER 3:4 (mantido) */
+        .video-wrapper {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto 16px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 133.33%; /* 4:3 = 3/4 */
+            background: #000;
+        }
+        .video-container > * {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            z-index: 2;
+            height: 100%;
         }
-        
-        .lv-widget {
+        .video-container vturb-smartplayer {
+            display: block;
             width: 100%;
+            height: 100%;
+        }
+        .vturb-player-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #111;
+        }
+
+        /* TÍTULO */
+        .video-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f1f1f1;
+            margin: 12px 0 8px;
+            line-height: 1.3;
+        }
+
+        /* META (canal + ações) */
+        .video-meta {
             display: flex;
-            justify-content: center;
-            margin-top: 30px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #272727;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            gap: 12px;
         }
-        
-        .lv-card {
-            width: 100%;
-            max-width: 720px;
+
+        .channel-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
-        .lv-wrap {
+        .channel-info .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #555655;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            text-align: center;
-            padding: 18px 22px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            color: #fff;
+            font-weight: 700;
             font-size: 18px;
-            line-height: 1.3;
-            color: #ffffff;
+            flex-shrink: 0;
         }
-        
-        .lv-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 999px;
-            background: #e53935;
-            box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
-            flex: 0 0 12px;
-            animation: lv-pulse 1.6s infinite ease-in-out;
+        .channel-info .details {
+            display: flex;
+            flex-direction: column;
         }
-
-        #fb-comments {
-
-          font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
-          font-size: 13px;
-          width: 100%;
-          margin: auto;
-        }
-
-        #fb-comments .fb-heading {
-          margin: 2.125em 0 0.625em;
-          font-size: 1.1em;
-          color: #555;
-          font-weight: 400;
-          text-align: left;
-
-        }
-
-        #fb-comments .comments-container {
-          display: flex;
-          flex-direction: column;
-          gap: 1.25em;
-          border: 0.0625em solid #e9ebee;
-          border-radius: 1.25em;
-          padding: 1.25em 1.25em 0;
-        }
-
-        #fb-comments .comment {
-          display: flex;
-          align-items: flex-start;
-          justify-content: flex-start;
-          position: relative;
-          width: 100%;
-          max-width: 100%;
-          gap: 0.625em;
-        }
-
-        #fb-comments .comment.answer {
-          margin-left: 3.625em;
-          max-width: calc(100% - 3.625em);
-          margin-bottom: 0.75em;
-        }
-
-        #fb-comments .comment.answer+.answer {
-          margin-top: -0.75em;
-        }
-
-        #fb-comments .comment .user-avatar {
-          max-width: 3em;
-          max-height: 3em;
-          border-radius: 1.5625em;
-          -o-object-fit: cover;
-          object-fit: cover;
-        }
-
-        #fb-comments .comment .comment-data {
-          width: 100%;
-        }
-
-        #fb-comments .comment .comment-data .user {
-          font-weight: 400;
-          color: #050505;
-          border-radius: 0.75em;
-          background-color: #f0f2f5;
-          padding: 0.375em 0.75em 0.75em;
-        }
-
-        #fb-comments .comment .comment-data .user .name {
-          margin: 0;
-          color: #365899;
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 16px;
-          cursor: pointer;
-          max-width: -webkit-max-content;
-          max-width: -moz-max-content;
-          max-width: max-content;
-        }
-
-        #fb-comments .comment .comment-data .user .text {
-          margin: 0;
-          font-weight: 400;
-          font-size: 16px;
-          color: #050505;
-        }
-
-        #fb-comments .comment .comment-data .buttons {
-          margin: 0.125em 0 0 0.75em;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 0.3125em;
-        }
-
-        #fb-comments .comment .comment-data .buttons time,
-        #fb-comments .comment .comment-data .buttons like,
-        #fb-comments .comment .comment-data .buttons answer,
-        #fb-comments .comment .comment-data .buttons span {
-          font-size: 0.80em;
-          color: #888;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-        }
-
-        #fb-comments .comment .comment-data .buttons like,
-        #fb-comments .comment .comment-data .buttons answer {
-          font-weight: 600;
-          cursor: pointer;
-        }
-
-        #fb-comments .comment .comment-data .buttons like[liked] {
-          color: #365899;
-        }
-
-        #fb-comments .comment .comment-data .buttons answer {
-          cursor: default;
-          position: relative;
-        }
-
-        #fb-comments .comment .comment-data .buttons answer:hover::after {
-          content: "You cannot comment on this post";
-          position: absolute;
-          left: 50%;
-          top: -0.625em;
-          width: 11.25em;
-          background-color: #f0f2f5;
-          color: #4c4c4c;
-          transform: translate(-50%, -100%);
-          z-index: 10;
-          border-radius: 0.25em;
-          padding: 0.375em;
-          text-align: center;
-          font-weight: 400;
-          box-shadow: 0.125em 0.125em 0.5em 0.125em rgba(0, 0, 0, 0.1803921569);
-        }
-
-        #fb-comments .comment .comment-data .buttons answer:hover::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: -0.625em;
-          width: 0;
-          height: 0;
-          border-left: 0.5em solid rgba(0, 0, 0, 0);
-          border-right: 0.5em solid rgba(0, 0, 0, 0);
-          border-top: 0.5em solid #f0f2f5;
-          z-index: 11;
-          transform: translateX(-50%);
-          filter: drop-shadow(0 0.1875em 0.125em rgba(0, 0, 0, 0.1));
-        }
-
-        #fb-comments .comment likes {
-          position: absolute;
-          bottom: -0.625em;
-          right: 0;
-          background-color: #fff;
-          border: 0.125em solid #eaebef;
-          display: flex;
-          align-items: center;
-          font-size: 0.875em;
-          line-height: 1;
-          color: #888;
-          border-radius: 6.25em;
-          padding: 0.0625em 0.25em 0.0625em 0;
-        }
-
-        #fb-comments .comment likes::before {
-          content: url('images/likes.png');
-          cursor: pointer;
-        }
-
-        #fb-comments .comments-closed {
-          font-size: 0.875em;
-          font-weight: 600;
-          text-align: center;
-          margin: 0.9375em 0 5px;
-          color: #555;
-        }
-
-        #titulo {
-          margin-top: -35px;
-          width: 100%;
-        }
-
-        #banner {
-          width: 100%;
-          margin-top: -15px;
-          margin-bottom: -25px;
-        }
-
-        @media (min-width: 576px) {
-          #fb-comments {
+        .channel-info .details .name {
+            font-weight: 600;
             font-size: 16px;
-          }
+            color: #f1f1f1;
+        }
+        .channel-info .details .subs {
+            font-size: 13px;
+            color: #aaa;
+        }
 
-          #fb-comments .comment likes {
-            bottom: 0;
-          }
+        .channel-info .subscribe-btn {
+            background: #cc0000;
+            color: #fff;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: background 0.2s;
         }
-        
-        @keyframes lv-pulse {
-            0% { transform: scale(1); opacity: .95 }
-            50% { transform: scale(1.25); opacity: .7 }
-            100% { transform: scale(1); opacity: .95 }
+        .channel-info .subscribe-btn:hover {
+            background: #990000;
         }
-        
-        .lv-number {
-            font-weight: 800;
-            color: #e53935;
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
-    
-        
+        .action-buttons button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #272727;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #f1f1f1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .action-buttons button:hover {
+            background: #3a3a3a;
+        }
+        .action-buttons button i {
+            font-size: 18px;
+        }
+        .action-buttons .like-btn {
+            border-radius: 40px 0 0 40px;
+            padding-right: 12px;
+            gap: 8px;
+        }
+        .action-buttons .like-btn.liked {
+            background: #3a3a3a;
+            color: #3ea6ff;
+        }
+        .action-buttons .like-btn.liked i {
+            color: #3ea6ff;
+        }
+        .action-buttons .dislike-btn {
+            border-radius: 0 40px 40px 0;
+            border-left: 1px solid #3a3a3a;
+            padding-left: 12px;
+        }
+        .action-buttons .dislike-btn i {
+            font-size: 18px;
+        }
+
+        /* VIEWS / DATA */
+        .views-date {
+            font-size: 14px;
+            color: #aaa;
+            margin: 4px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .live-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1f1f1f;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .live-counter i {
+            color: #ff0000;
+            font-size: 10px;
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* DESCRIÇÃO */
+        .description {
+            background: #1f1f1f;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 8px 0 20px;
+            color: #f1f1f1;
+            border: 1px solid #272727;
+        }
+        .description .show-more {
+            color: #aaa;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .description .show-more:hover {
+            color: #f1f1f1;
+        }
+
+        /* COMENTÁRIOS - YouTube Dark */
+        .comments-section {
+            margin-top: 8px;
+        }
+        .comments-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #f1f1f1;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #272727;
+            margin-bottom: 16px;
+        }
+        .comments-header span:first-child {
+            color: #f1f1f1;
+        }
+        .comments-header span:last-child {
+            color: #aaa;
+            font-weight: 400;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .comment {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .comment .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: #444;
+            background-size: cover;
+            background-position: center;
+        }
+        .comment .content {
+            flex: 1;
+        }
+        .comment .content .author {
+            font-weight: 600;
+            font-size: 13px;
+            color: #f1f1f1;
+        }
+        .comment .content .author span {
+            font-weight: 400;
+            color: #aaa;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+        .comment .content .text {
+            font-size: 14px;
+            margin: 4px 0 6px;
+            word-break: break-word;
+            color: #f1f1f1;
+        }
+        .comment .content .actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .comment .content .actions i {
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .comment .content .actions i:hover {
+            color: #f1f1f1;
+        }
+        .comment .content .actions .like-count {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .comment .content .actions .reply {
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .comment .content .actions .reply:hover {
+            color: #f1f1f1;
+        }
+
+        .comment.reply {
+            margin-left: 52px;
+            margin-bottom: 12px;
+        }
+
+        .comments-closed {
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+            padding: 20px 0 10px;
+            border-top: 1px solid #272727;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            body {
-                padding-top: 50px;
+            .yt-header .search-bar {
+                max-width: 200px;
+                margin: 0 10px;
             }
-            
-            .elementor-container {
-                padding: 20px;
-                margin: 10px;
-                border-radius: 12px;
+            .yt-header .header-icons {
+                gap: 12px;
+                font-size: 18px;
             }
-            
-            .chamada-container {
-                padding: 20px;
-                margin: 20px 10px;
+            .yt-main {
+                padding: 12px 12px;
             }
-            
-            .titulo-principal {
-                font-size: 24px;
-                line-height: 1.2;
+            .video-title {
+                font-size: 18px;
             }
-            
-            .subtitulo {
-                font-size: 16px;
+            .video-meta {
+                flex-direction: column;
+                align-items: flex-start;
             }
-            
-            .lv-wrap {
-                font-size: 16px;
-                padding: 14px 16px;
-                border-radius: 12px;
-                gap: 8px;
-                flex-direction: row;
+            .action-buttons {
+                width: 100%;
+                justify-content: flex-start;
             }
-            
-            .video-container {
-                margin-bottom: 25px;
+            .comment.reply {
+                margin-left: 36px;
             }
-            
-            .lv-widget {
-                margin-top: 20px;
-            }
-            
-            #banner-escassez {
+            .channel-info .subscribe-btn {
                 font-size: 12px;
-                padding: 12px;
+                padding: 4px 12px;
+            }
         }
-        
         @media (max-width: 480px) {
-            body {
-                padding-top: 45px;
+            .yt-header .search-bar {
+                max-width: 120px;
             }
-            
-            .chamada-container {
-                padding: 15px;
-                margin: 15px 8px;
+            .yt-header .logo {
+                font-size: 16px;
             }
-            
-            .titulo-principal {
-                font-size: 20px;
+            .yt-header .logo i {
+                font-size: 22px;
             }
-            
-            .subtitulo {
+            .action-buttons button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .action-buttons button i {
                 font-size: 14px;
             }
-            
-            .lv-wrap {
-                font-size: 14px;
-                padding: 12px;
-                gap: 6px;
+            .video-title {
+                font-size: 16px;
+            }
+            .comment .content .text {
+                font-size: 13px;
             }
         }
-    }
     </style>
 </head>
 <body>
 
-    <div>
-      <img src="images/title.png" alt="titulo" id="titulo">
-    </div>
-    
-    <div id="black-part">
-        <div class="video-container">
-            
-            
-<vturb-smartplayer id="vid-6a7a262bd03864b1da21aeee" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 132.19094247246022% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/5ac037f5-7261-4618-9f14-803d4eaa7e13/players/6a7a262bd03864b1da21aeee/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-            
+    <!-- HEADER YOUTUBE DARK -->
+    <header class="yt-header">
+        <a href="#" class="logo">
+            <i class="fab fa-youtube"></i> <span>YouTube</span>
+        </a>
+        <div class="header-icons">
+            <i class="fas fa-video"></i>
+            <i class="fas fa-bell"></i>
+            <div class="avatar" style="background-image: url('images/avatar.jpg');"></div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="yt-main">
+        <!-- PLAYER 3:4 -->
+        <div class="video-wrapper">
+            <div class="video-container">
+                <vturb-smartplayer id="vid-6a7a262bd03864b1da21aeee" style="display: block; width: 100%; height: 100%;">
+                    <div class="vturb-player-placeholder"></div>
+                </vturb-smartplayer>
+                <script type="text/javascript">
+                    var s = document.createElement("script");
+                    s.src = "https://scripts.converteai.net/5ac037f5-7261-4618-9f14-803d4eaa7e13/players/6a7a262bd03864b1da21aeee/v4/player.js";
+                    s.async = true;
+                    document.head.appendChild(s);
+                </script>
+            </div>
         </div>
 
-        <div>
-          <img src="images/banner-button.png" alt="proof" id="banner">
+        <!-- TÍTULO -->
+        <h1 class="video-title">Revelei a RECEITA DE SAL que cura a impotência e devolve a tua masculinidade!</h1>
+
+        <!-- META (Canal + Ações) -->
+        <div class="video-meta">
+            <div class="channel-info">
+                <div class="avatar"></div>
+                <div class="details">
+                    <div class="name">Psicóloga Saidate Ibraimo</div>
+                    <div class="subs">1,2 mi inscritos</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="like-btn" id="likeBtn">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span class="likes-num" id="likeCount">5,2 mil</span>
+                </button>
+                <button class="dislike-btn">
+                    <i class="fas fa-thumbs-down"></i>
+                </button>
+                <button><i class="fas fa-share"></i> Partilhar</button>
+                <button><i class="fas fa-download"></i></button>
+                <button><i class="fas fa-ellipsis-h"></i></button>
+            </div>
         </div>
-    </div>
-        
-        <!-- COMENTÁRIOS MODIFICADOS para a temática de disfunção erétil -->
-       <div id="fb-comments">
-        <h2 class="fb-heading">
-          <b style="padding-left: 10px;">1.321 Comments</b>
-        </h2>
-        <div class="comments-container">
-          <div class="comment" data-comment-id="1">
-            <img class="user-avatar" src="images/1.jpg" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">Carlos Silva</p>
-                <p class="text">Depois de 8 anos dependente de Viagra, finalmente estou livre! Usei o sal por 3 dias e tive a ereção mais forte da minha vida. Minha esposa não acreditou! 😲</p>
-              </div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>2h</time>
-              </div>
-            </div>
-          </div> 
-          <div class="comment" data-comment-id="3">
-            <img class="user-avatar" src="images/2.jpg" alt="" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">João Santos</p>
-                <p class="text">Sofri 12 anos de impotência e já tinha perdido as esperanças. Com o protocolo do sal, em uma semana meu pênis ficou mais grosso e as ereções duram 40+ minutos. Revolucionário!</p>
-              </div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>1h</time>
-              </div>
-            </div>
-          </div>
-          <div class="comment" data-comment-id="4">
-            <img class="user-avatar" src="images/3.jpg" alt="" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">Miguel Costa</p>
-                <p class="text">Aos 61 anos, achei que minha vida sexual tinha acabado. Mas com esse método natural, voltei a ter ereções como aos 25! Minha mulher está impressionada e nossa relação renasceu.</p>
-              </div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>1h</time>
-              </div>
-            </div>
-          </div>
-          <div class="comment" data-comment-id="5">
-            <img class="user-avatar" src="images/4.jpg" alt="" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">António Fernandes</p>
-                <p class="text">Gastava mais de 5.000 meticais por mês em Viagra e sprays. Agora com o sal, tenho ereções naturais que duram mais de 50 minutos. Economizo dinheiro e tenho melhor desempenho
-              </p></div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>19 min</time>
-              </div>
-            </div>
-          </div>
-          <div class="comment" data-comment-id="6">
-            <img class="user-avatar" src="images/5.jpg" alt="" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">Paulo Machava</p>
-                <p class="text">Depois do infarto, os médicos proibiram Viagra. Pensei que nunca mais teria uma vida sexual normal. O sal me salvou é 100% natural e não faz mal ao coração. Ereções duras como pedra!</p>
-              </div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>19 min</time>
-              </div>
-            </div>
-          </div>
-          <div class="comment" data-comment-id="7">
-            <img class="user-avatar" src="images/6.jpg" alt="" width="48" height="48">
-            <div class="comment-data">
-              <div class="user">
-                <p class="name">Ricardo Dauto</p>
-                <p class="text">Minha autoestima estava no chão. Com 49 anos já não conseguia mais ter relações. O protocolo do sal mudou tudo - em 10 dias meu pênis cresceu 3cm e as ereções são explosivas! Minha mulher não para de elogiar.</p>
-              </div>
-              <div class="buttons">
-                <like>Like</like>
-                <span>·</span>
-                <answer>Reply</answer>
-                <span>·</span>
-                <time>19 min</time>
-              </div>
-            </div>
-          </div>
-          <h4 class="comments-closed">This post is no longer receiving comments!</h4>
+
+        <!-- VIEWS + LIVE -->
+        <div class="views-date">
+            <span class="live-counter"><i class="fas fa-circle"></i> <span id="liveCount">1.234</span> a assistir agora</span>
         </div>
-    </div>
+
+        <!-- DESCRIÇÃO -->
+        <div class="description">
+            Cansado de depender de Viagra? Esta receita ancestral com sal comum está a devolver a potência e autoestima a milhares de homens. 100% natural, sem efeitos colaterais. Assiste até ao fim e transforma a tua vida sexual!<br>
+            <span class="show-more">...mais</span>
+        </div>
+
+        <!-- COMENTÁRIOS -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <span>1.321 Comentários</span>
+            </div>
+
+            <!-- Comentário 1 -->
+            <div class="comment" data-id="1">
+                <div class="avatar" style="background-image: url('images/1.jpg');"></div>
+                <div class="content">
+                    <div class="author">Carlos Silva <span>Há 2 horas</span></div>
+                    <div class="text">Depois de 8 anos dependente de Viagra, finalmente estou livre! Usei o sal por 3 dias e tive a ereção mais forte da minha vida. Minha esposa não acreditou! 😲</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 254</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 2 -->
+            <div class="comment" data-id="3">
+                <div class="avatar" style="background-image: url('images/2.jpg');"></div>
+                <div class="content">
+                    <div class="author">João Santos <span>Há 1 hora</span></div>
+                    <div class="text">Sofri 12 anos de impotência e já tinha perdido as esperanças. Com o protocolo do sal, em uma semana meu pênis ficou mais grosso e as ereções duram 40+ minutos. Revolucionário!</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 189</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 3 -->
+            <div class="comment" data-id="4">
+                <div class="avatar" style="background-image: url('images/3.jpg');"></div>
+                <div class="content">
+                    <div class="author">Miguel Costa <span>Há 1 hora</span></div>
+                    <div class="text">Aos 61 anos, achei que minha vida sexual tinha acabado. Mas com esse método natural, voltei a ter ereções como aos 25! Minha mulher está impressionada e nossa relação renasceu.</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 312</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 4 -->
+            <div class="comment" data-id="5">
+                <div class="avatar" style="background-image: url('images/4.jpg');"></div>
+                <div class="content">
+                    <div class="author">António Fernandes <span>Há 19 minutos</span></div>
+                    <div class="text">Gastava mais de 5.000 meticais por mês em Viagra e sprays. Agora com o sal, tenho ereções naturais que duram mais de 50 minutos. Economizo dinheiro e tenho melhor desempenho</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 147</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 5 -->
+            <div class="comment" data-id="6">
+                <div class="avatar" style="background-image: url('images/5.jpg');"></div>
+                <div class="content">
+                    <div class="author">Paulo Machava <span>Há 19 minutos</span></div>
+                    <div class="text">Depois do infarto, os médicos proibiram Viagra. Pensei que nunca mais teria uma vida sexual normal. O sal me salvou é 100% natural e não faz mal ao coração. Ereções duras como pedra!</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 98</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 6 -->
+            <div class="comment" data-id="7">
+                <div class="avatar" style="background-image: url('images/6.jpg');"></div>
+                <div class="content">
+                    <div class="author">Ricardo Dauto <span>Há 19 minutos</span></div>
+                    <div class="text">Minha autoestima estava no chão. Com 49 anos já não conseguia mais ter relações. O protocolo do sal mudou tudo - em 10 dias meu pênis cresceu 3cm e as ereções são explosivas! Minha mulher não para de elogiar.</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 215</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resposta aninhada -->
+            <div class="comment reply" data-id="8">
+                <div class="avatar" style="background-image: url('images/7.jpg');"></div>
+                <div class="content">
+                    <div class="author">Manuel Tavares <span>Há 10 minutos</span></div>
+                    <div class="text">@Ricardo Dauto Que incrível! Também estou a pensar experimentar. Onde compro esse sal?</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 34</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="comments-closed">Este post já não está a receber comentários!</h4>
+        </div>
+    </main>
 
     <script>
-        // Contador regressivo modificado
-        let tempo = 47;
-        const contadorEl = document.getElementById("contador");
+        // === INTERATIVIDADE DARK ===
 
-        function atualizarContador() {
-            contadorEl.textContent = tempo;
-            if (tempo > 0) tempo--;
+        // 1. LIKE principal (5,2k -> incrementa)
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCountSpan = document.getElementById('likeCount');
+        let likeCount = 5200;
+        let liked = false;
+
+        likeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!liked) {
+                likeCount += 1;
+                liked = true;
+                likeBtn.classList.add('liked');
+                likeCountSpan.textContent = formatNumber(likeCount);
+                // feedback scale
+                likeBtn.style.transform = 'scale(1.1)';
+                setTimeout(() => { likeBtn.style.transform = 'scale(1)'; }, 150);
+            } else {
+                likeCount -= 1;
+                liked = false;
+                likeBtn.classList.remove('liked');
+                likeCountSpan.textContent = formatNumber(likeCount);
+            }
+        });
+
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1).replace('.', ',') + ' mil';
+            }
+            return num.toString();
         }
 
-        setInterval(atualizarContador, 60000); // Diminui a cada minuto
-        atualizarContador();
+        // 2. Contador de visualizações (flutua)
+        const viewSpan = document.getElementById('viewCount');
+        let views = 6892;
+        setInterval(() => {
+            const delta = Math.floor(Math.random() * 10) - 3;
+            views = Math.max(6800, views + delta);
+            viewSpan.textContent = views.toLocaleString('pt-PT');
+        }, 8000);
 
-        // Widget de pessoas assistindo
-        document.querySelectorAll('.lv-wrap').forEach(function(el) {
-            const n = el.querySelector('.lv-number');
-            const ds = el.dataset;
-            const fmt = new Intl.NumberFormat(navigator.language || 'pt-PT');
+        // 3. Live counter (flutua)
+        const liveSpan = document.getElementById('liveCount');
+        setInterval(() => {
+            const base = 1234;
+            const variation = Math.floor(Math.random() * 400) - 200;
+            const val = Math.max(800, base + variation);
+            liveSpan.textContent = val.toLocaleString('pt-PT');
+        }, 15000);
 
-            let current = Math.min(Math.max(parseInt(ds.start || '892', 10), 
-                            parseInt(ds.min || '150', 10)), 
-                            parseInt(ds.max || '1500', 10));
-            
-            n.textContent = fmt.format(current);
-
-            function r(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
-            
-            function tick() {
-                const dir = Math.random() < 0.5 ? -1 : 1;
-                const delta = dir * r(parseInt(ds.stepMin || '1', 10), 
-                                    parseInt(ds.stepMax || '3', 10));
-                current = Math.min(Math.max(current + delta, 
-                                parseInt(ds.min || '150', 10)), 
-                                parseInt(ds.max || '1500', 10));
-                n.textContent = fmt.format(current);
-                setTimeout(tick, r(parseInt(ds.intervalMin || '2500', 10), 
-                                parseInt(ds.intervalMax || '6000', 10)));
-            }
-            setTimeout(tick, r(parseInt(ds.intervalMin || '2500', 10), 
-                            parseInt(ds.intervalMax || '6000', 10)));
-        });
-        
-        // Interatividade para os botões de like
-        document.querySelectorAll('.acao').forEach(acao => {
-            if (acao.textContent.includes('Curtir')) {
-                acao.addEventListener('click', function() {
-                    const curtidasEl = this.closest('.conteudo-comentario').querySelector('.curtidas');
-                    let curtidasCount = parseInt(curtidasEl.textContent.trim());
-                    curtidasCount += 1;
-                    curtidasEl.innerHTML = `<div class="like-icon"></div> ${curtidasCount}`;
-                    
-                    // Feedback visual
-                    this.style.color = '#1877F2';
-                    this.querySelector('.like-icon').style.backgroundColor = '#1877F2';
-                    
-                    // Reset após 2 segundos
-                    setTimeout(() => {
-                        this.style.color = '';
-                        this.querySelector('.like-icon').style.backgroundColor = '';
-                    }, 2000);
-                });
-            }
-        });
-
-        // Fallback para imagens que não carregam
-        document.querySelectorAll('.avatar-img').forEach(img => {
-            img.onerror = function() {
-                const avatar = this.parentElement;
-                const nome = this.alt;
-                const inicial = nome ? nome.charAt(0) : '?';
-                avatar.innerHTML = `<div class="avatar-placeholder">${inicial}</div>`;
-            };
-        });
-
-        // Adiciona efeito de hover suave em todos os comentários
-        document.querySelectorAll('.comentario').forEach(comentario => {
-            comentario.addEventListener('mouseenter', function() {
-                this.style.transition = 'all 0.3s ease';
+        // 4. Responder (alerta)
+        document.querySelectorAll('.reply').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                alert('💬 Os comentários estão fechados para esta demonstração.');
             });
         });
+
+        // 5. Like nos comentários (incrementa)
+        document.querySelectorAll('.comment .like-count').forEach(el => {
+            const icon = el.querySelector('i');
+            const textNode = el.childNodes[1]; // texto após o ícone
+            let count = parseInt(textNode.textContent.trim()) || 0;
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                count += 1;
+                textNode.textContent = ' ' + count;
+                icon.style.color = '#3ea6ff';
+                setTimeout(() => { icon.style.color = ''; }, 500);
+            });
+        });
+
+        // 6. Botão Inscrever-se (toggle)
+        const subBtn = document.querySelector('.subscribe-btn');
+        subBtn.addEventListener('click', function() {
+            if (this.textContent === 'Inscrever-me') {
+                this.textContent = 'Inscrito ✓';
+                this.style.background = '#272727';
+                this.style.color = '#f1f1f1';
+            } else {
+                this.textContent = 'Inscrever-me';
+                this.style.background = '#cc0000';
+                this.style.color = '#fff';
+            }
+        });
+
+        console.log('🔥 YouTube Dark Mode carregado com sucesso!');
     </script>
 </body>
 </html>
