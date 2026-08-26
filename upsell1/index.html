@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta Pixel Code (substitua pelo seu ID) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1069646678940530');  // ← substitua pelo seu Pixel ID
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1069646678940530&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <title>Extensão Natural – Upsell 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET E BASE (mesmo estilo da página principal) ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #f1f1f1;
+            padding-top: 56px;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* HEADER YouTube */
+        .yt-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 56px;
+            background: #0f0f0f;
+            border-bottom: 1px solid #272727;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+        }
+        .yt-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff0000;
+            text-decoration: none;
+        }
+        .yt-header .logo i { font-size: 28px; }
+        .yt-header .logo span { color: #f1f1f1; font-weight: 400; }
+        .yt-header .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 20px;
+            color: #f1f1f1;
+        }
+        .yt-header .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #555;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        /* MAIN */
+        .yt-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PLAYER 3:4 */
+        .video-wrapper {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto 16px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 133.33%; /* 4:3 */
+            background: #000;
+        }
+        .video-container > * {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .vturb-player-placeholder {
+            width: 100%; height: 100%;
+            background: #111;
+        }
+
+        /* TÍTULO */
+        .video-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #f1f1f1;
+            margin: 12px 0 8px;
+            line-height: 1.3;
+        }
+
+        /* META (canal + ações) */
+        .video-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #272727;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+        .channel-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .channel-info .avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: #555655;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .channel-info .details .name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #f1f1f1;
+        }
+        .channel-info .details .subs {
+            font-size: 13px;
+            color: #aaa;
+        }
+        .channel-info .subscribe-btn {
+            background: #cc0000;
+            color: #fff;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: background 0.2s;
+        }
+        .channel-info .subscribe-btn:hover { background: #990000; }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .action-buttons button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #272727;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #f1f1f1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .action-buttons button:hover { background: #3a3a3a; }
+        .action-buttons button i { font-size: 18px; }
+        .action-buttons .like-btn {
+            border-radius: 40px 0 0 40px;
+            padding-right: 12px;
+            gap: 8px;
+        }
+        .action-buttons .like-btn.liked {
+            background: #3a3a3a;
+            color: #3ea6ff;
+        }
+        .action-buttons .dislike-btn {
+            border-radius: 0 40px 40px 0;
+            border-left: 1px solid #3a3a3a;
+            padding-left: 12px;
+        }
+
+        .views-date {
+            font-size: 14px;
+            color: #aaa;
+            margin: 4px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .live-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1f1f1f;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .live-counter i {
+            color: #ff0000;
+            font-size: 10px;
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* DESCRIÇÃO (agora mais longa, com a copy do upsell) */
+        .description {
+            background: #1f1f1f;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 8px 0 20px;
+            color: #f1f1f1;
+            border: 1px solid #272727;
+        }
+        .description strong {
+            color: #ffcc00;
+        }
+        .description .highlight {
+            background: #2a2a2a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .description .price-box {
+            background: #1e3a2a;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 16px 0 8px;
+        }
+        .description .price-box .old-price {
+            font-size: 18px;
+            color: #aaa;
+            text-decoration: line-through;
+        }
+        .description .price-box .new-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: #4caf50;
+        }
+        .description .price-box .note {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* BOTÃO DE COMPRA (verde, igual ao mencionado) */
+        .btn-buy {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 24px auto 16px;
+            background: #2e7d32;
+            color: #fff;
+            border: none;
+            padding: 18px 10px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.5);
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+        .btn-buy:hover {
+            background: #1b5e20;
+            transform: scale(1.02);
+        }
+        .btn-buy i {
+            margin-right: 10px;
+        }
+        .btn-buy .sub {
+            font-size: 14px;
+            font-weight: 400;
+            display: block;
+            margin-top: 4px;
+            opacity: 0.85;
+        }
+
+        /* COMENTÁRIOS */
+        .comments-section {
+            margin-top: 24px;
+        }
+        .comments-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #f1f1f1;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #272727;
+            margin-bottom: 16px;
+        }
+        .comment {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .comment .avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: #444;
+            background-size: cover;
+            background-position: center;
+        }
+        .comment .content { flex: 1; }
+        .comment .content .author {
+            font-weight: 600;
+            font-size: 13px;
+            color: #f1f1f1;
+        }
+        .comment .content .author span {
+            font-weight: 400;
+            color: #aaa;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+        .comment .content .text {
+            font-size: 14px;
+            margin: 4px 0 6px;
+            color: #f1f1f1;
+        }
+        .comment .content .actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .comment .content .actions i {
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .comment .content .actions .like-count {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .comment .content .actions .reply {
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .comment .content .actions .reply:hover { color: #f1f1f1; }
+        .comment.reply { margin-left: 52px; margin-bottom: 12px; }
+
+        .comments-closed {
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+            padding: 20px 0 10px;
+            border-top: 1px solid #272727;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .yt-header .header-icons { gap: 12px; font-size: 18px; }
+            .yt-main { padding: 12px; }
+            .video-title { font-size: 18px; }
+            .video-meta { flex-direction: column; align-items: flex-start; }
+            .action-buttons { width: 100%; justify-content: flex-start; }
+            .comment.reply { margin-left: 36px; }
+            .btn-buy { font-size: 18px; padding: 14px; }
+        }
+        @media (max-width: 480px) {
+            .yt-header .logo { font-size: 16px; }
+            .yt-header .logo i { font-size: 22px; }
+            .action-buttons button { padding: 6px 12px; font-size: 12px; }
+            .video-title { font-size: 16px; }
+            .comment .content .text { font-size: 13px; }
+            .description { font-size: 14px; padding: 12px; }
+            .description .price-box .new-price { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="yt-header">
+        <a href="#" class="logo">
+            <i class="fab fa-youtube"></i> <span>YouTube</span>
+        </a>
+        <div class="header-icons">
+            <i class="fas fa-video"></i>
+            <i class="fas fa-bell"></i>
+            <div class="avatar" style="background-image: url('images/avatar.jpg');"></div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="yt-main">
+
+        <!-- PLAYER (substitua pelo seu vídeo) -->
+        <div class="video-wrapper">
+            <div class="video-container">
+                <!-- Coloque aqui o código do seu player V‑Turb ou do YouTube -->
+                <!-- Exemplo com V‑Turb (substitua o ID) -->
+                <vturb-smartplayer id="vid-upsell1" style="display:block; width:100%; max-width:400px; margin:0 auto;">
+                    <div class="vturb-player-placeholder" style="position:relative; width:100%; padding:132.19% 0 0; background:#000;"></div>
+                </vturb-smartplayer>
+                <script type="text/javascript">
+                    var s=document.createElement("script");
+                    s.src="https://scripts.converteai.net/5ac037f5-7261-4618-9f14-803d4eaa7e13/players/6a8ebe85d4fcace87ec99bbe/v4/player.js"; // ← substitua pelo seu link do player
+                    s.async=!0;
+                    document.head.appendChild(s);
+                </script>
+                <!-- Caso prefira um iframe do YouTube, substitua o bloco acima por algo como:
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                -->
+            </div>
+        </div>
+
+        <!-- TÍTULO (adaptado para o upsell) -->
+        <h1 class="video-title">
+            🔥 EXTENSÃO NATURAL – 3 Ingredientes que Multiplicam os Resultados do Método do Sal!
+        </h1>
+
+        <!-- META (Canal + Ações) -->
+        <div class="video-meta">
+            <div class="channel-info">
+                <div class="avatar"></div>
+                <div class="details">
+                    <div class="name">Psicóloga Saidate Ibraimo</div>
+                    <div class="subs">1,2 mi inscritos</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="like-btn" id="likeBtn">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span class="likes-num" id="likeCount">3,8 mil</span>
+                </button>
+                <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+                <button><i class="fas fa-share"></i> Partilhar</button>
+                <button><i class="fas fa-download"></i></button>
+                <button><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+        </div>
+
+        <!-- VIEWS + LIVE -->
+        <div class="views-date">
+            <span class="live-counter"><i class="fas fa-circle"></i> <span id="liveCount">176</span> a assistir agora</span>
+        </div>
+
+        <!-- DESCRIÇÃO com a copy do upsell 1 -->
+        <div class="description">
+            <p><strong>⚠️ ATENÇÃO: isto não é o método do sal básico.</strong> É a <strong>EXTENSÃO NATURAL</strong> que eu escondi no vídeo principal.</p>
+
+            <p>Você já deu o passo mais importante – adquiriu o método do sal que elimina as placas de colesterol e devolve suas ereções. <strong>Mas agora, com apenas <u>3 ingredientes</u> que você encontra em qualquer mercado,</strong> os resultados podem ser até <strong>5 vezes mais rápidos</strong>.</p>
+
+            <div class="highlight">
+                <p><i class="fas fa-bolt" style="color:#ffcc00;"></i> <strong>Comparação:</strong></p>
+                <ul style="list-style:none; padding-left:0;">
+                    <li>✅ Método normal: 30 dias para limpar 100% das veias + 4 a 7 cm de aumento</li>
+                    <li>🚀 <strong>Com a Extensão Natural: apenas 3 dias + até 16 cm de aumento</strong></li>
+                </ul>
+            </div>
+
+            <p>Isso acontece porque esses 3 ingredientes <strong>potencializam a ação do sal</strong>, quebram as placas de colesterol mais rápido e <strong>aumentam a testosterona em 200%</strong> – tudo <strong>sem efeitos colaterais</strong>.</p>
+
+            <p>Eu não pude mostrar isso no vídeo gratuito porque a indústria das pílulas azuis não quer que você saiba. Mas agora que você já confiou em mim, decidi liberar essa extensão <strong>apenas para quem quer levar o desempenho para outro nível</strong>.</p>
+
+            <div class="price-box">
+                <p style="font-size:18px; font-weight:500;">🔒 Normalmente vendida separadamente por <span style="text-decoration:line-through; color:#aaa;">2.000 MZN</span></p>
+                <p class="old-price">De 2.000 MZN</p>
+                <p class="new-price">POR APENAS 197 MZN</p>
+                <p class="note">⬇️ Menos do que uma caixa de Viagra falsificada e 14x mais potente</p>
+                <p style="margin-top:8px; font-size:14px; color:#90ee90;">✅ Garantia de 7 dias: se não sentir diferença nos primeiros 7 dias, devolvemos 100% do seu investimento (incluindo o método principal)!</p>
+            </div>
+
+            <p><strong>🎁 BÔNUS EXCLUSIVO:</strong> Ao adquirir agora, você leva o <strong>"Guia da Manhã Poderosa"</strong> – uma rotina de 3 minutos ao acordar que garante ereções matinais como aos 18 anos.</p>
+
+        </div>
+
+        <!-- COMENTÁRIOS (fictícios, reforçando o upsell) -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <span>1.472 Comentários</span>
+            </div>
+
+            <div class="comment">
+                <div class="avatar" style="background-image: url('images/1.jpg');"></div>
+                <div class="content">
+                    <div class="author">Carlos Silva <span>Há 2 horas</span></div>
+                    <div class="text">Comprei a extensão depois de ver este vídeo e em 3 dias já notei uma diferença absurda! O meu pénis cresceu 5 cm e as ereções estão muito mais firmes. Minha esposa está alucinada! 😱</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 312</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="avatar" style="background-image: url('images/2.jpg');"></div>
+                <div class="content">
+                    <div class="author">João Santos <span>Há 1 hora</span></div>
+                    <div class="text">Já estava a usar o método do sal há 10 dias e vi melhorias, mas com a extensão natural foi como se tivesse ligado o turbo! Resultados em 3 dias, incrível! Recomendo a todos.</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 189</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="avatar" style="background-image: url('images/3.jpg');"></div>
+                <div class="content">
+                    <div class="author">Miguel Costa <span>Há 45 minutos</span></div>
+                    <div class="text">Aos 61 anos, achei que nunca mais teria ereções matinais. Depois de 3 dias com a extensão, acordo com uma ereção de pedra! Valeu cada centavo.</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 254</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="avatar" style="background-image: url('images/4.jpg');"></div>
+                <div class="content">
+                    <div class="author">António Fernandes <span>Há 19 minutos</span></div>
+                    <div class="text">Só o método do sal já era bom, mas a extensão é o verdadeiro segredo! Já ganhei 4 cm e a confiança voltou ao máximo. Obrigado, doutora!</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 147</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment reply">
+                <div class="avatar" style="background-image: url('images/5.jpg');"></div>
+                <div class="content">
+                    <div class="author">Ricardo Dauto <span>Há 10 minutos</span></div>
+                    <div class="text">@António Fernandes Também comprei e estou maravilhado! Em 3 dias, a dureza e o tamanho aumentaram visivelmente. Melhor investimento da minha vida!</div>
+                    <div class="actions">
+                        <span class="like-count"><i class="fas fa-thumbs-up"></i> 68</span>
+                        <span class="reply">Responder</span>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="comments-closed">💬 Os comentários estão fechados para esta demonstração.</h4>
+        </div>
+
+    </main>
+
+    <script>
+        // === INTERATIVIDADE (like, live counter, etc.) ===
+
+        // Like principal
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCountSpan = document.getElementById('likeCount');
+        let likeCount = 3800;
+        let liked = false;
+
+        likeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!liked) {
+                likeCount += 1;
+                liked = true;
+                likeBtn.classList.add('liked');
+                likeCountSpan.textContent = formatNumber(likeCount);
+                likeBtn.style.transform = 'scale(1.1)';
+                setTimeout(() => { likeBtn.style.transform = 'scale(1)'; }, 150);
+            } else {
+                likeCount -= 1;
+                liked = false;
+                likeBtn.classList.remove('liked');
+                likeCountSpan.textContent = formatNumber(likeCount);
+            }
+        });
+
+        function formatNumber(num) {
+            if (num >= 1000) return (num / 1000).toFixed(1).replace('.', ',') + ' mil';
+            return num.toString();
+        }
+
+        // Live counter flutuante
+        const liveSpan = document.getElementById('liveCount');
+        setInterval(() => {
+            const base = 876;
+            const variation = Math.floor(Math.random() * 300) - 150;
+            const val = Math.max(600, base + variation);
+            liveSpan.textContent = val.toLocaleString('pt-PT');
+        }, 15000);
+
+        // Like nos comentários
+        document.querySelectorAll('.comment .like-count').forEach(el => {
+            const icon = el.querySelector('i');
+            const textNode = el.childNodes[1];
+            let count = parseInt(textNode.textContent.trim()) || 0;
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                count += 1;
+                textNode.textContent = ' ' + count;
+                icon.style.color = '#3ea6ff';
+                setTimeout(() => { icon.style.color = ''; }, 500);
+            });
+        });
+
+        // Botão de compra (simulação)
+        document.getElementById('buyButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Substitua o link abaixo pelo seu link de pagamento real
+            window.location.href = 'https://seudominio.com/pagar-upsell1';
+        });
+
+        console.log('🚀 Página de Upsell 1 carregada com sucesso!');
+    </script>
+
+</body>
+</html>
