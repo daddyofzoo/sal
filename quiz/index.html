@@ -12,14 +12,45 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f0f2f5;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 24px;
+            min-height: 100vh;
+        }
+
+        .quiz-card {
+            max-width: 520px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 36px 32px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+            margin: auto;
+            max-height: 98vh;
+            overflow-y: auto;
+        }
+
+        .quiz-card::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .quiz-card::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .quiz-card::-webkit-scrollbar-thumb {
+            background: #d5dce6;
+            border-radius: 4px;
         }
 
         .quiz-logo {
@@ -294,6 +325,7 @@
             .quiz-card {
                 padding: 24px 18px 20px;
                 border-radius: 20px;
+                max-height: 96vh;
             }
 
             .step-title {
