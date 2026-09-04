@@ -524,6 +524,18 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
 
             showStep(0);
         });
+
+        // 🔽 NOVO: Centraliza o conteúdo verticalmente ao abrir a página (mantendo a rolagem)
+        window.addEventListener('load', function() {
+            const card = document.querySelector('.quiz-card');
+            const viewportHeight = window.innerHeight;
+            const cardHeight = card.offsetHeight;
+
+            if (cardHeight > viewportHeight) {
+                const scrollY = (cardHeight - viewportHeight) / 2;
+                window.scrollTo({ top: scrollY, behavior: 'smooth' });
+            }
+        });
     </script>
 
 </body>
