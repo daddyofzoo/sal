@@ -32,14 +32,23 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f0f2f5;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 16px;
+        }
+
+        .quiz-card {
+            transform-origin: center center;
+            transition: transform 0.2s ease;
         }
 
         .quiz-logo {
@@ -472,6 +481,7 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
                     s.classList.toggle('active', i === index);
                 });
                 updateProgress();
+                fitToViewport();
             }
 
             function goNext() {
@@ -500,6 +510,7 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
             function startAnalysis() {
                 stepsContainer.style.display = 'none';
                 analysisScreen.classList.add('active');
+                fitToViewport();
 
                 circle.style.strokeDasharray = CIRCUM;
                 circle.style.strokeDashoffset = CIRCUM;
@@ -517,6 +528,7 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
                         setTimeout(() => {
                             analysisScreen.classList.remove('active');
                             resultScreen.classList.add('active');
+                            fitToViewport();
                         }, 700);
                     }
                 }, 70);
@@ -524,6 +536,28 @@ src="https://www.facebook.com/tr?id=1085277144073636&ev=PageView&noscript=1"
 
             showStep(0);
         });
+
+        // 🔽 Escala o card para caber 100% na tela, sem rolagem, mantendo o visual
+        function fitToViewport() {
+            const card = document.getElementById('app');
+            if (!card) return;
+
+            // Reset para medir o tamanho real
+            card.style.transform = 'scale(1)';
+
+            // Altura disponível (descontando o padding do body = 16px*2)
+            const available = window.innerHeight - 32;
+            const needed = card.offsetHeight;
+
+            if (needed > available) {
+                const scale = available / needed;
+                card.style.transform = `scale(${scale})`;
+            }
+        }
+
+        window.addEventListener('load', fitToViewport);
+        window.addEventListener('resize', fitToViewport);
+        window.addEventListener('orientationchange', fitToViewport);
     </script>
 
 </body>
